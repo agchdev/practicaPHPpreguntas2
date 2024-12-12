@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2024 a las 18:40:29
+-- Tiempo de generación: 12-12-2024 a las 23:15:22
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -85,6 +85,9 @@ INSERT INTO `usuarios` (`usuario`, `tmpInicio`, `tmpFinal`, `tmpTotal`, `arrayPr
 ('jijija', '2024-12-12 17:07:27', NULL, NULL, ',10,3,5,8,6', NULL),
 ('jijija2', '2024-12-12 17:08:39', NULL, NULL, ',9,6,8,2,1', NULL),
 ('perroflauta', '2024-12-12 16:45:33', NULL, NULL, ',4,7,9,2,6', NULL),
+('perry', '2024-12-12 19:43:17', NULL, NULL, ',5,6,9,2,3', NULL),
+('perry2', '2024-12-12 19:44:10', NULL, NULL, ',8,4,3,2,9', NULL),
+('perry3', '2024-12-12 19:48:06', NULL, NULL, ',8,5,6,3,2', NULL),
 ('wdwd', '2024-12-12 16:38:04', NULL, NULL, ',5,4,3,10,7', NULL),
 ('wewe', '2024-12-12 16:39:47', NULL, NULL, ',7,3,10,4,8', NULL);
 
