@@ -32,8 +32,6 @@ class pregunta{
             $cod = (int)$cod;
             $this->codPregunta = $cod;
         }
-        echo "<p>$this->codPregunta</p>";
-        echo "<h1>".gettype($this->codPregunta)."</h1>";
         $sentenciaUsu->close();
 
         // PREPARO LA PREGUNTA ALMACENANDO LA RESPUESTA
@@ -42,14 +40,18 @@ class pregunta{
         $this->bd->set_charset("utf8"); // Para que muestre tildes
         $sentencia->bind_result($this->textPregunta, $this->respuestaPregunta,$this->numRespuestas); // Donde voy a guardar el resultado
         $sentencia->execute(); // Ejecuto la consulta
-        if(!$sentencia){
+        if(!$sentencia){ //Comprobando consulta
             throw new Exception("Error al preparar la consulta: ".$this->bd->error);
         }
         while($sentencia->fetch()){
+            echo "<h2 class=\"pregunta\">".$this->textPregunta."</h2>";
             echo "<form action=\"preguntas.php?usu=".$user."&numPreg=".$this->codPregunta."\" method=\"post\" enctype=\"multipart/form-data\">"; // Me paso el codigo de la pregunta de esta manera para poder ir eliminandola del string
-            echo $this->textPregunta;
-            echo $this->respuestaPregunta;
-            echo $this->numRespuestas;
+            $this->numRespuestas = (int)$this->numRespuestas;
+            for ($i=0; $i < $this->numRespuestas; $i++) { 
+                echo "<input type=\"text\" name=\"respuesta".$i."\" id=\"res\" placeholder=\"Introdude la respuesta\">";
+            }
+            echo "<input type=\"submit\" id=\"enter\" name=\"enviar\" value=\"enviar\">";
+            echo "</form>";
         }
     }
 }

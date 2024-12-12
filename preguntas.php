@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGCHTEST-PREGUNTAS</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body id="bodyPreguntas">
     <?php
         require("inc/conexion.php");
         require("clases.php");
@@ -16,14 +17,9 @@
         $pregunta->muestraPregunta($usu, $numPreg);
 
         if (isset($_POST["enviar"])) {
-            
-        }else{
-
-        
+            $_POST["respuesta1"]
+        }else{  
     ?>
-
-
-        </form>
     <?php
         }
     ?>

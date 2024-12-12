@@ -44,7 +44,7 @@
             }
         }
         ?>
-        <h2 class="logoText roboto-bold">AGCH TEST!</h2> 
+        <h1 class="logoText roboto-bold">AGCH TEST!</h1> 
         <div>
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="username" id="username" placeholder="Nombre de usuario...">
