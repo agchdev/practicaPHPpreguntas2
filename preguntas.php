@@ -14,7 +14,6 @@
         if(isset($_GET["user"]))$usu = $_GET["user"];
         // if(isset($_GET["numPreg"]))$numPreg = $_GET["numPreg"];
         $pregunta = new pregunta($conexion);
-        $pregunta->muestraPregunta($usu);
         if (isset($_POST["enviar"])) {
             $res = [];
             $solPreg = "";
@@ -26,10 +25,10 @@
             if($pregunta->corregirRespuesta($solPreg, $res)){
                 $pregunta->eliminarPreg($usu);
                 echo "<p>Vamos a ver que pasa</p>";
+                $pregunta->muestraPregunta($usu);
             }
         }else{  
-    ?>
-    <?php
+            $pregunta->muestraPregunta($usu);
         }
     ?>
 </body>

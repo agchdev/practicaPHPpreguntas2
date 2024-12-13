@@ -98,7 +98,7 @@ class pregunta{
             }
             $strPreguntas = "";
             foreach ($arrayPreguntas as $pregunta) {
-                $strPreguntas += ",".$pregunta;
+                $strPreguntas .= ",".$pregunta;
             }
         }
         $sentenciaUsu->close();
