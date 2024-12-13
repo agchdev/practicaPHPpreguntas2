@@ -64,8 +64,8 @@ class pregunta{
             $solucion = explode(",",$solucion);
             foreach ($solucion as $sol) {
                 foreach ($res as $r) {
-                    if($sol == $r) $cont++;
                     echo "<p>".$sol." = ".$r."</p>";
+                    if($sol == $r) $cont++;
                 }
             }
         }else{
