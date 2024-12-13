@@ -26,12 +26,17 @@ class pregunta{
             throw new Exception("Error al preparar la consulta: ".$this->bd->error);
         }
         while($sentenciaUsu->fetch()){
-            $strPreguntas = explode(",",$strPreguntas);
-            array_shift($strPreguntas);
-            $cod = $strPreguntas[0];
-            $cod = trim($cod);
-            $cod = (int)$cod;
-            $this->codPregunta = $cod;
+            if (strlen($strPreguntas)<=0) {
+                $strPreguntas = explode(",",$strPreguntas);
+                array_shift($strPreguntas);
+                $cod = $strPreguntas[0];
+                $cod = trim($cod);
+                $cod = (int)$cod;
+                $this->codPregunta = $cod;
+            }else{
+                header("Location:ranking.php");
+            }
+            
         }
         $sentenciaUsu->close();
 
@@ -60,9 +65,8 @@ class pregunta{
     public function corregirRespuesta($solucion, $res){
         $cont=0;
         $acierto = false;
-        $solucion = explode(",",$solucion);
-        array_shift($solucion);
-        if (count($res)>2) {
+        if (count($res)>1) {
+            $solucion = explode(",",$solucion);
             for ($i=0; $i < count($res); $i++) { 
                 if ($solucion[$i] == $res[$i]) {
                     $cont++;
