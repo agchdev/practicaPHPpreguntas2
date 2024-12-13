@@ -30,6 +30,7 @@
                 $res[] = $_POST["respuesta2"];
                 echo "<p>".$res[2]."</p>";
             }
+            echo "<p>".count($res)."</p>";
             if(isset($_POST["solucion"]))$solPreg = $_POST["solucion"];
             if($pregunta->corregirRespuesta($solPreg, $res)){
                 echo "<p>GG</p>";

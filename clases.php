@@ -60,12 +60,12 @@ class pregunta{
     public function corregirRespuesta($solucion, $res){
         $cont=0;
         $acierto = false;
-        if (str_contains(',',$solucion)) {
-            $solucion = explode(",",$solucion);
-            foreach ($solucion as $sol) {
-                foreach ($res as $r) {
-                    echo "<p>".$sol." = ".$r."</p>";
-                    if($sol == $r) $cont++;
+        $solucion = explode(",",$solucion);
+        array_shift($solucion);
+        if (count($res)>2) {
+            for ($i=0; $i < count($res); $i++) { 
+                if ($solucion[$i] == $res[$i]) {
+                    $cont++;
                 }
             }
         }else{
