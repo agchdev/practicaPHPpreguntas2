@@ -49,8 +49,8 @@ class pregunta{
             echo "<form action=\"preguntas.php?user=".$user."\" method=\"POST\" enctype=\"multipart/form-data\">"; // Me paso el codigo de la pregunta de esta manera para poder ir eliminandola del string
             $this->numRespuestas = (int)$this->numRespuestas;
             for ($i=0; $i < $this->numRespuestas; $i++) { 
-                echo "<input type=\"text\" name=\"respuesta".$i."\" id=\"res\" placeholder=\"Introdude la respuesta\" required>";
-                echo "<input type=\"hidden\" name=\"solucion\" class=\"hidden\" value=\"$this->respuestaPregunta\">";
+                echo "<input type=\"text\" name=\"respuesta".$i."\" id=\"inputext\" placeholder=\"Introdude la respuesta\" required>";
+                echo "<input type=\"hidden\" name=\"solucion\" value=\"$this->respuestaPregunta\">";
             }
             echo "<input type=\"submit\" id=\"enter\" name=\"enviar\" value=\"enviar\">";
             echo "</form>";
@@ -89,13 +89,7 @@ class pregunta{
         while($sentenciaUsu->fetch()){
             $arrayPreguntas = explode(",",$strPreguntas);
             array_shift($arrayPreguntas);
-            foreach ($arrayPreguntas as $key) {
-                echo "<p>+".$key."</p>";
-            }
             array_shift($arrayPreguntas);
-            foreach ($arrayPreguntas as $key) {
-                echo "<p>-".$key."</p>";
-            }
             $strPreguntas = "";
             foreach ($arrayPreguntas as $pregunta) {
                 $strPreguntas .= ",".$pregunta;
@@ -107,7 +101,6 @@ class pregunta{
         $elimSentencia = $this->bd->prepare($elimConsulta);
         $this->bd->set_charset("utf8");
         $elimSentencia->execute(); // Ejecuto la consulta
-        echo "<p>BORRADO CON EXITO</p>";
     }
 }
 
