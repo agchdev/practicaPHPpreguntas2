@@ -57,9 +57,21 @@ class pregunta{
         return $this->respuestaPregunta;
     }
 
-    public function corregirRespuesta($numPreg, $solucion, $res){
-        $solucion = explode(",",$solucion);
+    public function corregirRespuesta($solucion, $res){
+        $cont=0;
+        $acierto = false;
+        if (str_contains(',',$solucion)) {
+            $solucion = explode(",",$solucion);
+            foreach ($solucion as $sol) {
+                foreach ($res as $r) {
+                    if($sol == $r) $cont++;
+                }
+            }
+        }else{
+            if($solucion == $res[0]) $cont++;
+        }
         
+        if(count($res) == $cont) return $acierto = true;
     }
 }
 

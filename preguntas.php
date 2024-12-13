@@ -22,7 +22,7 @@
             if(isset($_POST["respuesta1"]))$res[] = $_POST["respuesta1"];
             if(isset($_POST["respuesta2"]))$res[] = $_POST["respuesta2"];
             
-            $pregunta->corregirRespuesta($usu, $numPreg, $solucion, $res)
+            echo $pregunta->corregirRespuesta($solucion, $res);
         }else{  
     ?>
     <?php
