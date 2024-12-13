@@ -12,9 +12,9 @@
         require("clases.php");
 
         if(isset($_GET["user"]))$usu = $_GET["user"];
-        if(isset($_GET["numPreg"]))$numPreg = $_GET["numPreg"];
+        // if(isset($_GET["numPreg"]))$numPreg = $_GET["numPreg"];
         $pregunta = new pregunta($conexion);
-        $pregunta->muestraPregunta($usu, $numPreg);
+        $pregunta->muestraPregunta($usu);
         if (isset($_POST["enviar"])) {
             $res = [];
             $solPreg = "";

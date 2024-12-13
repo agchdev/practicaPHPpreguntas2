@@ -15,7 +15,7 @@ class pregunta{
         $this->bd=$db; // La conexion
     }
 
-    public function muestraPregunta($user, $numPreg){
+    public function muestraPregunta($user){
         $strPreguntas = "";
         $consultUsu = "SELECT arrayPreg FROM usuarios WHERE usuario = '".$user."'"; // La consulta para extraer el array de preguntas del usuario
         $sentenciaUsu = $this->bd->prepare($consultUsu); // preparo la consulta
@@ -28,7 +28,7 @@ class pregunta{
         while($sentenciaUsu->fetch()){
             $strPreguntas = explode(",",$strPreguntas);
             array_shift($strPreguntas);
-            $cod = $strPreguntas[$numPreg];
+            $cod = $strPreguntas[0];
             $cod = trim($cod);
             $cod = (int)$cod;
             $this->codPregunta = $cod;
@@ -46,10 +46,10 @@ class pregunta{
         }
         while($sentencia->fetch()){
             echo "<h2 class=\"pregunta\">".$this->textPregunta."</h2>";
-            echo "<form action=\"preguntas.php?user=".$user."&numPreg=".$this->codPregunta."\" method=\"POST\" enctype=\"multipart/form-data\">"; // Me paso el codigo de la pregunta de esta manera para poder ir eliminandola del string
+            echo "<form action=\"preguntas.php?user=".$user."\" method=\"POST\" enctype=\"multipart/form-data\">"; // Me paso el codigo de la pregunta de esta manera para poder ir eliminandola del string
             $this->numRespuestas = (int)$this->numRespuestas;
             for ($i=0; $i < $this->numRespuestas; $i++) { 
-                echo "<input type=\"text\" name=\"respuesta".$i."\" id=\"res\" placeholder=\"Introdude la respuesta\">";
+                echo "<input type=\"text\" name=\"respuesta".$i."\" id=\"res\" placeholder=\"Introdude la respuesta\" required>";
                 echo "<input type=\"hidden\" name=\"solucion\" class=\"hidden\" value=\"$this->respuestaPregunta\">";
             }
             echo "<input type=\"submit\" id=\"enter\" name=\"enviar\" value=\"enviar\">";
