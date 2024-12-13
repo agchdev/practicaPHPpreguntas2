@@ -26,7 +26,8 @@ class pregunta{
             throw new Exception("Error al preparar la consulta: ".$this->bd->error);
         }
         while($sentenciaUsu->fetch()){
-            explode(",",$strPreguntas);
+            $strPreguntas = explode(",",$strPreguntas);
+            array_shift($strPreguntas);
             $cod = $strPreguntas[$numPreg];
             $cod = trim($cod);
             $cod = (int)$cod;
@@ -86,13 +87,18 @@ class pregunta{
             throw new Exception("Error al preparar la consulta: ".$this->bd->error);
         }
         while($sentenciaUsu->fetch()){
-            explode(",",$strPreguntas);
-            foreach ($strPreguntas as $key) {
+            $arrayPreguntas = explode(",",$strPreguntas);
+            array_shift($arrayPreguntas);
+            foreach ($arrayPreguntas as $key) {
                 echo "<p>+".$key."</p>";
             }
-            array_shift($strPreguntas);
-            foreach ($strPreguntas as $key) {
+            array_shift($arrayPreguntas);
+            foreach ($arrayPreguntas as $key) {
                 echo "<p>-".$key."</p>";
+            }
+            $strPreguntas = "";
+            foreach ($arrayPreguntas as $pregunta) {
+                $strPreguntas += ",".$pregunta;
             }
         }
         $sentenciaUsu->close();

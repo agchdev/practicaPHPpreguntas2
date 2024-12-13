@@ -20,7 +20,7 @@
             $error = $usu->insertarUsuario();
             echo "Resultado: " . ($error ? "Éxito" : "Error");
             if ($error) {
-                header("Location:preguntas.php?user=".$usuario."&numPreg=1");
+                header("Location:preguntas.php?user=".$usuario."&numPreg=0");
             } else {
                 header("Location:index.php?errIni=1");
             }
