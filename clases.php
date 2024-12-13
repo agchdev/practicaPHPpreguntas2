@@ -53,6 +53,13 @@ class pregunta{
             echo "<input type=\"submit\" id=\"enter\" name=\"enviar\" value=\"enviar\">";
             echo "</form>";
         }
+
+        return $this->respuestaPregunta;
+    }
+
+    public function corregirRespuesta($numPreg, $solucion, $res){
+        $solucion = explode(",",$solucion);
+        
     }
 }
 

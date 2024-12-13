@@ -14,14 +14,15 @@
         if(isset($_GET["user"]))$usu = $_GET["user"];
         if(isset($_GET["numPreg"]))$numPreg = $_GET["numPreg"];
         $pregunta = new pregunta($conexion);
-        $pregunta->muestraPregunta($usu, $numPreg);
+        $solucion = $pregunta->muestraPregunta($usu, $numPreg);
 
         if (isset($_POST["enviar"])) {
-            if(isset($_POST["respuesta0"]))$respuesta0 = $_POST["respuesta0"];
-            if(isset($_POST["respuesta1"]))$respuesta1 = $_POST["respuesta1"];
-            if(isset($_POST["respuesta2"]))$respuesta2 = $_POST["respuesta2"];
+            $res = [];
+            if(isset($_POST["respuesta0"]))$res[] = $_POST["respuesta0"];
+            if(isset($_POST["respuesta1"]))$res[] = $_POST["respuesta1"];
+            if(isset($_POST["respuesta2"]))$res[] = $_POST["respuesta2"];
             
-            
+            $pregunta->corregirRespuesta($usu, $numPreg, $solucion, $res)
         }else{  
     ?>
     <?php
