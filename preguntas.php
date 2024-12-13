@@ -17,7 +17,11 @@
         $pregunta->muestraPregunta($usu, $numPreg);
 
         if (isset($_POST["enviar"])) {
-            $_POST["respuesta1"]
+            if(isset($_POST["respuesta0"]))$respuesta0 = $_POST["respuesta0"];
+            if(isset($_POST["respuesta1"]))$respuesta1 = $_POST["respuesta1"];
+            if(isset($_POST["respuesta2"]))$respuesta2 = $_POST["respuesta2"];
+            
+            
         }else{  
     ?>
     <?php

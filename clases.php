@@ -45,7 +45,7 @@ class pregunta{
         }
         while($sentencia->fetch()){
             echo "<h2 class=\"pregunta\">".$this->textPregunta."</h2>";
-            echo "<form action=\"preguntas.php?usu=".$user."&numPreg=".$this->codPregunta."\" method=\"post\" enctype=\"multipart/form-data\">"; // Me paso el codigo de la pregunta de esta manera para poder ir eliminandola del string
+            echo "<form action=\"preguntas.php?user=".$user."&numPreg=".$this->codPregunta."\" method=\"POST\" enctype=\"multipart/form-data\">"; // Me paso el codigo de la pregunta de esta manera para poder ir eliminandola del string
             $this->numRespuestas = (int)$this->numRespuestas;
             for ($i=0; $i < $this->numRespuestas; $i++) { 
                 echo "<input type=\"text\" name=\"respuesta".$i."\" id=\"res\" placeholder=\"Introdude la respuesta\">";
