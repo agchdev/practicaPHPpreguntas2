@@ -49,12 +49,11 @@ class pregunta{
             $this->numRespuestas = (int)$this->numRespuestas;
             for ($i=0; $i < $this->numRespuestas; $i++) { 
                 echo "<input type=\"text\" name=\"respuesta".$i."\" id=\"res\" placeholder=\"Introdude la respuesta\">";
+                echo "<input type=\"hidden\" name=\"solucion\" class=\"hidden\" value=\"$this->respuestaPregunta\">";
             }
             echo "<input type=\"submit\" id=\"enter\" name=\"enviar\" value=\"enviar\">";
             echo "</form>";
         }
-
-        return $this->respuestaPregunta;
     }
 
     public function corregirRespuesta($solucion, $res){
@@ -71,7 +70,38 @@ class pregunta{
             if($solucion == $res[0]) $cont++;
         }
         
-        if(count($res) == $cont) return $acierto = true;
+        if(count($res) == $cont){ 
+            return $acierto = true;
+        }
+    }
+
+    public function eliminarPreg($user){
+        $strPreguntas = "";
+        $consultUsu = "SELECT arrayPreg FROM usuarios WHERE usuario = '".$user."'"; // La consulta para extraer el array de preguntas del usuario
+        $sentenciaUsu = $this->bd->prepare($consultUsu); // preparo la consulta
+        $this->bd->set_charset("utf8"); // Para que muestre tildes
+        $sentenciaUsu->bind_result($strPreguntas); // Donde voy a guardar el resultado
+        $sentenciaUsu->execute(); // Ejecuto la consulta
+        if(!$sentenciaUsu){
+            throw new Exception("Error al preparar la consulta: ".$this->bd->error);
+        }
+        while($sentenciaUsu->fetch()){
+            explode(",",$strPreguntas);
+            foreach ($strPreguntas as $key) {
+                echo "<p>+".$key."</p>";
+            }
+            array_shift($strPreguntas);
+            foreach ($strPreguntas as $key) {
+                echo "<p>-".$key."</p>";
+            }
+        }
+        $sentenciaUsu->close();
+
+        $elimConsulta = "UPDATE usuarios SET arrayPreg = '".$strPreguntas."' WHERE usuario = '".$user."'";
+        $elimSentencia = $this->bd->prepare($elimConsulta);
+        $this->bd->set_charset("utf8");
+        $elimSentencia->execute(); // Ejecuto la consulta
+        echo "<p>BORRADO CON EXITO</p>";
     }
 }
 
