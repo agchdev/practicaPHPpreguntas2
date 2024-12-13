@@ -65,6 +65,7 @@ class pregunta{
             foreach ($solucion as $sol) {
                 foreach ($res as $r) {
                     if($sol == $r) $cont++;
+                    echo "<p>".$sol." = ".$r."</p>";
                 }
             }
         }else{
