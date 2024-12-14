@@ -29,30 +29,15 @@ class pregunta{
             if (strlen($strPreguntas)>0) {
                 $strPreguntas = explode(",",$strPreguntas);
                 array_shift($strPreguntas);
-                $cod = $strPreguntas[0];
-                $cod = trim($cod);
-                $cod = (int)$cod;
-                $this->codPregunta = $cod;
+                $cod = $strPreguntas[0]; // Quitar la primera pregunta
+                $cod = trim($strPreguntas[0]); // Obtener el siguiente código
+                $this->codPregunta = (int)$cod; // Convertirlo a entero
             }else{
-                // Obtener el tiempo final (hora actual)
-                $tmpFinal = date("Y-m-d H:i:s"); // Formato para MySQL
-                // Query para actualizar el tiempo final
-                $sql = "UPDATE usuarios SET tmpFinal = ? WHERE usuario = ?";
-                // Preparar la consulta
-                $stmt = $this->bd->prepare($sql);
-                $stmt->bind_param("ss", $tmpFinal, $user); // "s" para string (fecha) y "i" para entero (id)
-                // Ejecutar la consulta
-                if ($stmt->execute()) {
-                    header("Location:ranking.php?user=\"$user\"");
-                } else {
-                    echo "Error al guardar el tiempo final: " . $stmt->error;
-                }
-                // Cerrar la conexión
-                $stmt->close();
+                header("Location:ranking.php?user=\"$user\"");
             }
             
         }
-        $sentenciaUsu->close();
+        $sentenciaUsu->close(); // Cerrar el statement de la consulta de usuario
 
         // PREPARO LA PREGUNTA ALMACENANDO LA RESPUESTA
         $consulta = "SELECT textPregunta,respuestaPregunta,numRespuestas FROM preguntas WHERE idPregunta=".$this->codPregunta."";
