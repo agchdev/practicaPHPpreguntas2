@@ -26,7 +26,7 @@ class pregunta{
             throw new Exception("Error al preparar la consulta: ".$this->bd->error);
         }
         while($sentenciaUsu->fetch()){
-            if (strlen($strPreguntas)<=0) {
+            if (strlen($strPreguntas)>0) {
                 $strPreguntas = explode(",",$strPreguntas);
                 array_shift($strPreguntas);
                 $cod = $strPreguntas[0];
@@ -34,7 +34,21 @@ class pregunta{
                 $cod = (int)$cod;
                 $this->codPregunta = $cod;
             }else{
-                header("Location:ranking.php");
+                // Obtener el tiempo final (hora actual)
+                $tmpFinal = date("Y-m-d H:i:s"); // Formato para MySQL
+                // Query para actualizar el tiempo final
+                $sql = "UPDATE usuarios SET tmpFinal = ? WHERE usuario = ?";
+                // Preparar la consulta
+                $stmt = $this->bd->prepare($sql);
+                $stmt->bind_param("ss", $tmpFinal, $user); // "s" para string (fecha) y "i" para entero (id)
+                // Ejecutar la consulta
+                if ($stmt->execute()) {
+                    header("Location:ranking.php?user=\"$user\"");
+                } else {
+                    echo "Error al guardar el tiempo final: " . $stmt->error;
+                }
+                // Cerrar la conexión
+                $stmt->close();
             }
             
         }
@@ -162,6 +176,21 @@ class usuario{
             $error = false; // Error en la excepción
         }
         return $error;
+    }
+
+    public function ranking($user){
+        $consultUsu = "SELECT usuario, tmpTotal FROM usuarios WHERE tmpTotal IS NOT NULL ORDER BY tmpTotal DESC"; // La consulta para extraer los tiempos
+        $sentenciaUsu = $this->bd->prepare($consultUsu); // preparo la consulta
+        $this->bd->set_charset("utf8"); // Para que muestre tildes
+        $sentenciaUsu->bind_result($this->username, $this->tmp_total); // Donde voy a guardar el resultado
+        $sentenciaUsu->execute(); // Ejecuto la consulta
+        if(!$sentenciaUsu){
+            throw new Exception("Error al preparar la consulta: ".$this->bd->error);
+        }
+        while($sentenciaUsu->fetch()){
+            //Añadir el top aquí
+        }
+        $sentenciaUsu->close();
     }
     
 }

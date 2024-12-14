@@ -18,7 +18,7 @@
             }
             $usu = new usuario($conexion, $usuario);
             $error = $usu->insertarUsuario();
-            echo "Resultado: " . ($error ? "Éxito" : "Error");
+            // echo "Resultado: " . ($error ? "Éxito" : "Error");
             if ($error) {
                 header("Location:preguntas.php?user=".$usuario);
             } else {

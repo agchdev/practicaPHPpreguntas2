@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>GG!</h1>
+    <?php
+    
+
+    ?>
 </body>
 </html>
