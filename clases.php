@@ -164,8 +164,8 @@ class usuario{
         return $error;
     }
 
-    public function ranking($user){
-        $consultUsu = "SELECT usuario, tmpTotal FROM usuarios WHERE tmpTotal IS NOT NULL ORDER BY tmpTotal DESC"; // La consulta para extraer los tiempos
+    public function ranking(){
+        $consultUsu = "SELECT usuario, tmpTotal FROM usuarios WHERE tmpTotal IS NOT NULL ORDER BY tmpTotal ASC"; // La consulta para extraer los tiempos
         $sentenciaUsu = $this->bd->prepare($consultUsu); // preparo la consulta
         $this->bd->set_charset("utf8"); // Para que muestre tildes
         $sentenciaUsu->bind_result($this->username, $this->tmp_total); // Donde voy a guardar el resultado
@@ -173,14 +173,21 @@ class usuario{
         if(!$sentenciaUsu){
             throw new Exception("Error al preparar la consulta: ".$this->bd->error);
         }
+        echo "<table class=\"container\">
+                <tr>
+                    <th>USUARIOS</th>
+                    <th>TIEMPO</th>
+                </tr>";
         while($sentenciaUsu->fetch()){
-            //Añadir el top aquí
+            echo "<tr>";
+            echo "<td>".$this->username."</td><td>".$this->tmp_total."</td>";
+            echo "</tr>";
         }
+        echo "</table>";
         $sentenciaUsu->close();
     }
 
     public function addTmpTotal($user){
-        echo "<p>".$user."</p>";
         $consulta = "SELECT tmpInicio, tmpFinal FROM usuarios WHERE usuario = ".$user."";
         $sentencia = $this->bd->prepare($consulta);
         $sentencia->execute(); // Ejecutar la consulta
@@ -196,11 +203,10 @@ class usuario{
         $diferencia = $datetimeFinal->diff($datetimeInicio);
 
         // Mostrar la diferencia
-        echo "Diferencia: " . $diferencia->format('%H horas, %I minutos, %S segundos') . "<br>";
+        // echo "Diferencia: " . $diferencia->format('%H horas, %I minutos, %S segundos') . "<br>";
 
         // Calcular la diferencia total en segundos
         $segundosTotales = strtotime($this->tmp_final) - strtotime($this->tmp_inicio);
-        echo "Diferencia total en segundos: $segundosTotales segundos<br>";
 
         // Actualizar en la base de datos
         $updateConsulta = "UPDATE usuarios SET tmpTotal = ? WHERE usuario = ".$user."";
@@ -208,9 +214,7 @@ class usuario{
         $stmt->bind_param("i", $segundosTotales);
         $stmt->execute();
 
-        if ($stmt->affected_rows > 0) {
-            echo "Registro actualizado con éxito.";
-        } else {
+        if ($stmt->affected_rows < 0) {
             echo "No se actualizó ningún registro.";
         }
         $stmt->close();

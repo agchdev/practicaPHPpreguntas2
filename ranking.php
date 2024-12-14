@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <?php
@@ -19,8 +20,6 @@
 
     if(isset($_GET["user"])){
         $user = trim($_GET["user"]);
-        echo "Usuario: $user";
-        echo "<br>Base de datos activa: " . $conexion->query("SELECT DATABASE()")->fetch_row()[0];
 
         // Verificar si el usuario existe (Esto de abajo es una pequeña muestra de desesperacion porque la parte abajo no funcionaba de ninguna manera)
         // $check_sql = "SELECT usuario FROM usuarios WHERE usuario = ".$user."";
@@ -65,5 +64,10 @@
         $usu->addTmpTotal($user);
     }
     ?>
+    <main id="kahoot">
+        <?php
+            $usu->ranking();
+        ?>
+    </main>
 </body>
 </html>
