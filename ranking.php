@@ -65,9 +65,12 @@
     }
     ?>
     <main id="kahoot">
+        <h1 class="logoText">RANKING</h1>
         <?php
-            $usu->ranking();
+            $ranking = new usuario($conexion);
+            $ranking->ranking();
         ?>
+        <a class="footer enlace" href="./index.php">INICIAR SESION</a>
     </main>
 </body>
 </html>

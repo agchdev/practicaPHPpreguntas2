@@ -1,91 +1,161 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .roboto-thin {
 	font-family: "Roboto", sans-serif;
 	font-weight: 100;
 	font-style: normal;
-  }
-  .roboto-light {
+}
+
+.roboto-light {
 	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	font-style: normal;
-  }
-  
-  .roboto-regular {
+}
+
+.roboto-regular {
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-  }
-  
-  .roboto-medium {
+}
+
+.roboto-medium {
 	font-family: "Roboto", sans-serif;
 	font-weight: 500;
 	font-style: normal;
-  }
-  
-  .roboto-bold {
+}
+
+.roboto-bold {
 	font-family: "Roboto", sans-serif;
 	font-weight: 700;
 	font-style: normal;
-  }
-  
-  .roboto-black {
+}
+
+.roboto-black {
 	font-family: "Roboto", sans-serif;
 	font-weight: 900;
 	font-style: normal;
-  }
-  
-  .roboto-thin-italic {
+}
+
+.roboto-thin-italic {
 	font-family: "Roboto", sans-serif;
 	font-weight: 100;
 	font-style: italic;
-  }
-  
-  .roboto-light-italic {
+}
+
+.roboto-light-italic {
 	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	font-style: italic;
-  }
-  
-  .roboto-regular-italic {
+}
+
+.roboto-regular-italic {
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	font-style: italic;
-  }
-  
-  .roboto-medium-italic {
+}
+
+.roboto-medium-italic {
 	font-family: "Roboto", sans-serif;
 	font-weight: 500;
 	font-style: italic;
-  }
-  
-  .roboto-bold-italic {
+}
+
+.roboto-bold-italic {
 	font-family: "Roboto", sans-serif;
 	font-weight: 700;
 	font-style: italic;
-  }
-  
-  .roboto-black-italic {
+}
+
+.roboto-black-italic {
 	font-family: "Roboto", sans-serif;
 	font-weight: 900;
 	font-style: italic;
-  }
+}
 
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -93,67 +163,86 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 .frame {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: 400px;
-  margin-top: -200px;
-  margin-left: -200px;
-  border-radius: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
 	overflow: hidden;
-  color: #415868;
+	color: #415868;
 	font-family: 'Open Sans', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 .modal {
-  position: absolute;
+	position: absolute;
 	width: 280px;
 	height: 210px;
-  top: 95px;
-  left: 60px;
+	top: 95px;
+	left: 60px;
 	background: #fff;
 	border-radius: 3px;
-	box-shadow: 4px 8px 12px 0 rgba(0,0,0,0.4);
+	box-shadow: 4px 8px 12px 0 rgba(0, 0, 0, 0.4);
 	text-align: center;
 	overflow: hidden;
 	animation: show-modal .7s ease-in-out;
-	
+
 	&.hide {
 		animation: hide-modal .6s ease-in-out both;
 	}
-	
+
 	img {
 		margin-top: 24px;
 	}
-	
+
 	.title {
 		display: block;
 		font-size: 18px;
@@ -161,7 +250,7 @@ table {
 		font-weight: 400;
 		margin: 14px 0 5px 0;
 	}
-	
+
 	p {
 		font-size: 14px;
 		font-weight: 300;
@@ -169,7 +258,7 @@ table {
 		margin: 0;
 		padding: 0 30px;
 	}
-	
+
 	.button {
 		position: absolute;
 		height: 40px;
@@ -183,127 +272,130 @@ table {
 		font-weight: 400;
 		cursor: pointer;
 		transition: background .3s ease-in-out;
-		
+
 		&:hover {
 			background: #EC3434;
 		}
-		
+
 	}
-	
+
 }
 
 /* kahoot */
-#kahoot{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: #381272;
+#kahoot {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background-color: #381272;
 }
-#kahoot form{
+
+#kahoot form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border-radius: 1rem;
 	background-color: rgb(255, 255, 255);
-    padding: 16px;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px;
+	padding: 16px;
+	border-radius: 4px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px;
 }
-#kahoot form input[type="text"]{
+
+#kahoot form input[type="text"] {
 	min-height: 2.375rem;
-    max-height: 48px;
-    line-height: 2.375rem;
-    text-align: center;
-    max-width: 20rem;
-    min-width: 6.25rem;
-    color: rgb(51, 51, 51);
-    outline: none;
-    font-size: 1rem;
-    border-radius: 4px;
-    box-sizing: border-box;
+	max-height: 48px;
+	line-height: 2.375rem;
+	text-align: center;
+	max-width: 20rem;
+	min-width: 6.25rem;
+	color: rgb(51, 51, 51);
+	outline: none;
+	font-size: 1rem;
+	border-radius: 4px;
+	box-sizing: border-box;
 	width: 100%;
 	margin-bottom: 0.625rem;
-    font-weight: 700;
-    font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
-    border: 0.125rem solid rgb(204, 204, 204);
-    background-color: rgb(255, 255, 255);
-    padding: 0.25rem 0.375rem;
+	font-weight: 700;
+	font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
+	border: 0.125rem solid rgb(204, 204, 204);
+	background-color: rgb(255, 255, 255);
+	padding: 0.25rem 0.375rem;
 }
 
-#inputext{
+#inputext {
 	min-height: 2.375rem;
-    max-height: 48px;
-    line-height: 2.375rem;
-    text-align: center;
-    max-width: 20rem;
-    min-width: 6.25rem;
-    color: rgb(51, 51, 51);
-    outline: none;
-    font-size: 1rem;
-    border-radius: 4px;
-    box-sizing: border-box;
+	max-height: 48px;
+	line-height: 2.375rem;
+	text-align: center;
+	max-width: 20rem;
+	min-width: 6.25rem;
+	color: rgb(51, 51, 51);
+	outline: none;
+	font-size: 1rem;
+	border-radius: 4px;
+	box-sizing: border-box;
 	width: 100%;
 	margin-bottom: 0.625rem;
-    font-weight: 700;
-    font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
-    border: 0.125rem solid rgb(204, 204, 204);
-    background-color: rgb(255, 255, 255);
-    padding: 0.25rem 0.375rem;
+	font-weight: 700;
+	font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
+	border: 0.125rem solid rgb(204, 204, 204);
+	background-color: rgb(255, 255, 255);
+	padding: 0.25rem 0.375rem;
 }
 
-#kahoot form input[type="submit"]{
+#kahoot form input[type="submit"] {
 	width: 100%;
-    margin: 0px;
-    border: 0px;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: bottom;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px -4px inset;
-    background: rgb(51, 51, 51);
-    color: rgb(255, 255, 255);
-    border-radius: 4px;
-    font-size: 0.875rem;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    min-width: 48px;
-    min-height: 48px;
-    padding: 0px 16px 4px;
-    font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
+	margin: 0px;
+	border: 0px;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: bottom;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px -4px inset;
+	background: rgb(51, 51, 51);
+	color: rgb(255, 255, 255);
+	border-radius: 4px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	min-width: 48px;
+	min-height: 48px;
+	padding: 0px 16px 4px;
+	font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
 }
 
-.logoText{
+.logoText {
 	font-size: 6rem;
 	text-transform: uppercase;
 	color: white;
 	font-weight: bolder;
 	margin-bottom: 3rem;
+	font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
 }
 
-.footer{
+.footer {
 	color: white;
 	position: absolute;
 	bottom: 5px;
 }
 
-.pregunta{
+.pregunta {
 	font-size: 2rem;
 	margin-bottom: 3rem;
 	background-color: white;
-	border: 10px solid  rgb(51, 51, 51);
-    box-shadow: rgb(0, 0, 0) 0px 2px 0px;
+	border: 10px solid rgb(51, 51, 51);
+	box-shadow: rgb(0, 0, 0) 0px 2px 0px;
 	padding: 4rem;
 	border-radius: 2rem;
 	font-weight: bolder;
 	text-transform: uppercase;
-    font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
+	font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
 	color: rgb(51, 51, 51);
 }
 
-#bodyPreguntas{
+#bodyPreguntas {
 	height: 100vh;
 	width: 100%;
 	display: flex;
@@ -312,95 +404,154 @@ table {
 	flex-direction: column;
 	background-color: #381272;
 }
-.blue { color: #185875; }
-.yellow { color: #FFF842; }
+.enlace{
+	color: white;
+	font-weight: light;
+	font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
+}
+
+.blue {
+	color: #185875;
+}
+
+.yellow {
+	color: #FFF842;
+}
 
 .container th h1 {
-	
-	  font-weight: bold;
-	  font-size: 1em;
-  text-align: left;
-  color: #185875;
+
+	font-weight: bold;
+	font-size: 1em;
+	text-align: left;
+	color: #185875;
 }
 
 .container td {
-	  font-weight: normal;
-	  font-size: 1em;
-  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
-	        box-shadow: 0 2px 2px -2px #0E1119;
+	font-weight: normal;
+	font-size: 1em;
+	-webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	-moz-box-shadow: 0 2px 2px -2px #0E1119;
+	box-shadow: 0 2px 2px -2px #0E1119;
 }
 
 .container {
 	font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, "Bai Jamjuree", sans-serif;
 	font-weight: bolder;
 	color: white;
-	  text-align: left;
-	  overflow: hidden;
-	  width: 80%;
-	  margin: 0 auto;
-  display: table;
-  padding: 0 0 8em 0;
+	text-align: left;
+	overflow: hidden;
+	width: 40%;
+	margin: 0 auto;
+	display: table;
+	padding: 0 0 8em 0;
 }
 
-.container td, .container th {
-	  padding-bottom: 2%;
-	  padding-top: 2%;
-  padding-left:2%;  
+.container td,
+.container th {
+	padding-bottom: 2%;
+	padding-top: 2%;
+	padding-left: 2%;
 }
 
 /* Background-color of the odd rows */
 .container tr:nth-child(odd) {
-	  background-color: #323C50;
+	background-color: #323C50;
 }
 
 /* Background-color of the even rows */
 .container tr:nth-child(even) {
-	  background-color: #2C3446;
+	background-color: #2C3446;
 }
 
 .container th {
-	  background-color: #1F2739;
+	background-color: #1F2739;
 }
 
-.container td:first-child { color: #FB667A !important; }
+.container td:first-child {
+	color: #FB667A !important;
+}
 
 .container tr:hover {
-   background-color: #464A52;
--webkit-box-shadow: 0 6px 6px -6px #0E1119;
-	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
-	        box-shadow: 0 6px 6px -6px #0E1119;
+	background-color: #464A52;
+	-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	-moz-box-shadow: 0 6px 6px -6px #0E1119;
+	box-shadow: 0 6px 6px -6px #0E1119;
 }
 
-.container td:hover {
-  background-color: #FFF842;
-  color: #403E10;
-  font-weight: bold;
-  
-  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-  transform: translate3d(6px, -6px, 0);
-  
-  transition-delay: 0s;
-	  transition-duration: 0.4s;
-	  transition-property: all;
-  transition-timing-function: line;
+.user:nth-child(1):hover {
+	background-color: #FFF842;
+	color: #403E10;
+	font-weight: bold;
+
+	box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+	transform: translate3d(6px, -6px, 0);
+
+	transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+	transition-timing-function: line;
+}
+.user:nth-child(2):hover{
+	background-color: #9f9f9f;
+	color: #3c3c3c;
+	font-weight: bold;
+
+	box-shadow: #808080 -1px 1px, #808080 -2px 2px, #808080 -3px 3px, #808080 -4px 4px, #808080 -5px 5px, #808080 -6px 6px;
+	transform: translate3d(6px, -6px, 0);
+
+	transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+	transition-timing-function: line;
+}
+.user:nth-child(3):hover {
+	background-color: #ffba42;
+	color: #403410;
+	font-weight: bold;
+
+	box-shadow: #7f5d21 -1px 1px, #7f5d21 -2px 2px, #7f5d21 -3px 3px, #7f5d21 -4px 4px, #7f5d21 -5px 5px, #7f5d21 -6px 6px;
+	transform: translate3d(6px, -6px, 0);
+
+	transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+	transition-timing-function: line;
+}
+.time:hover {
+	background-color: #42ff65;
+	color: #104010;
+	font-weight: bold;
+
+	box-shadow: #217f29 -1px 1px, #217f3f -2px 2px, #217f3f -3px 3px, #217f3f -4px 4px, #217f3f -5px 5px, #217f3f -6px 6px;
+	transform: translate3d(6px, -6px, 0);
+
+	transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+	transition-timing-function: line;
 }
 
 @media (max-width: 800px) {
-.container td:nth-child(4),
-.container th:nth-child(4) { display: none; }
+
+	.container td:nth-child(4),
+	.container th:nth-child(4) {
+		display: none;
+	}
 }
 
 @keyframes show-modal {
 	0% {
 		transform: scale(0);
 	}
+
 	60% {
 		transform: scale(1.1);
 	}
+
 	80% {
 		transform: scale(.95);
 	}
+
 	100% {
 		transform: scale(1);
 	}
@@ -410,9 +561,11 @@ table {
 	0% {
 		transform: scale(1);
 	}
+
 	20% {
 		transform: scale(1.1);
 	}
+
 	100% {
 		transform: scale(0);
 	}

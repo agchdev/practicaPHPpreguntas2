@@ -51,7 +51,7 @@
                 <input type="submit" name="enviar" id="enviar" value="enviar">
             </form>
         </div>
-        <p class="footer">Mira el <a href="">ranking</a> directamente pinchando en este enlace <a href="">RANKING</a></p>
+        <p class="footer">Mira el <a href="./ranking.php">ranking</a> directamente pinchando en este enlace <a href="./ranking.php">RANKING</a></p>
         </section>
     </main>
     <?php

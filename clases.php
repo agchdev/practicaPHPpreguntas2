@@ -173,6 +173,7 @@ class usuario{
         if(!$sentenciaUsu){
             throw new Exception("Error al preparar la consulta: ".$this->bd->error);
         }
+        $cont=1;
         echo "<table class=\"container\">
                 <tr>
                     <th>USUARIOS</th>
@@ -180,8 +181,9 @@ class usuario{
                 </tr>";
         while($sentenciaUsu->fetch()){
             echo "<tr>";
-            echo "<td>".$this->username."</td><td>".$this->tmp_total."</td>";
+            echo "<td class=\"user\">".$cont."º ".$this->username."</td><td class=\"time\">".$this->tmp_total." Segundos </td>";
             echo "</tr>";
+            $cont++;
         }
         echo "</table>";
         $sentenciaUsu->close();
