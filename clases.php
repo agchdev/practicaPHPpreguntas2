@@ -50,6 +50,7 @@ class pregunta{
         }
         while($sentencia->fetch()){
             echo "<h2 class=\"pregunta\">".$this->textPregunta."</h2>";
+            // Linea 54 eres la responsable en un futuro de uno de los mayores dolores de cabeza de la historia :)
             echo "<form action=\"preguntas.php?user=".$user."\" method=\"POST\" enctype=\"multipart/form-data\">"; // Me paso el codigo de la pregunta de esta manera para poder ir eliminandola del string
             $this->numRespuestas = (int)$this->numRespuestas;
             for ($i=0; $i < $this->numRespuestas; $i++) { 
@@ -177,7 +178,42 @@ class usuario{
         }
         $sentenciaUsu->close();
     }
-    
-}
 
+    public function addTmpTotal($user){
+        echo "<p>".$user."</p>";
+        $consulta = "SELECT tmpInicio, tmpFinal FROM usuarios WHERE usuario = ".$user."";
+        $sentencia = $this->bd->prepare($consulta);
+        $sentencia->execute(); // Ejecutar la consulta
+        $sentencia->bind_result($this->tmp_inicio, $this->tmp_final); // Vincular los resultados
+        $sentencia->fetch();
+        $sentencia->close();
+
+        // Convertir a objetos DateTime
+        $datetimeInicio = new DateTime($this->tmp_inicio);
+        $datetimeFinal = new DateTime($this->tmp_final);
+
+        // Calcular la diferencia
+        $diferencia = $datetimeFinal->diff($datetimeInicio);
+
+        // Mostrar la diferencia
+        echo "Diferencia: " . $diferencia->format('%H horas, %I minutos, %S segundos') . "<br>";
+
+        // Calcular la diferencia total en segundos
+        $segundosTotales = strtotime($this->tmp_final) - strtotime($this->tmp_inicio);
+        echo "Diferencia total en segundos: $segundosTotales segundos<br>";
+
+        // Actualizar en la base de datos
+        $updateConsulta = "UPDATE usuarios SET tmpTotal = ? WHERE usuario = ".$user."";
+        $stmt = $this->bd->prepare($updateConsulta);
+        $stmt->bind_param("i", $segundosTotales);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            echo "Registro actualizado con éxito.";
+        } else {
+            echo "No se actualizó ningún registro.";
+        }
+        $stmt->close();
+    }
+}
 ?>
