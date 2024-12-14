@@ -41,7 +41,6 @@
             }
         }else{  
             $pregunta->muestraPregunta($usu);
-            echo "holllaaa";
         }
     ?>
 </body>
